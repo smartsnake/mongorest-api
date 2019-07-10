@@ -1,0 +1,210 @@
+//CRUD OPERATIONS FOR INVOICES W/ DIFFERENT USER LEVELS
+//-------------------------------------------------
+
+GET https://mongorest-api.herokuapp.com/invoice/
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/invoice/
+
+###
+
+GET https://admin:lamepassword@localhost:2020/invoice/1
+
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/invoice/1
+
+
+###
+
+POST https://admin:lamepassword@localhost:2020/invoice/
+Content-Type: application/json
+
+{
+"id": "401",
+"lookupID": 777,
+"customerID": 105,
+"date": "2018-08-03",
+"totalCost": 555,
+"totalSale": 200,
+"items": [
+    {
+    "itemLookupID": 102,
+    "quantity": 10,
+    "cost": 5,
+    "sellPrice": 10
+    },
+    {
+    "itemLookupID": 400,
+    "quantity": 10,
+    "cost": 5,
+    "sellPrice": 10
+    }
+    ]
+}
+
+###
+
+
+POST https://mongorest-api.herokuapp.com/invoice/
+Content-Type: application/json
+
+{
+"_id": "402",
+"lookupID": 777,
+"customerID": 105,
+"date": "2018-08-03",
+"totalCost": 555,
+"totalSale": 200,
+"items": [
+    {
+    "itemLookupID": 102,
+    "quantity": 10,
+    "cost": 5,
+    "sellPrice": 10
+    },
+    {
+    "itemLookupID": 400,
+    "quantity": 10,
+    "cost": 5,
+    "sellPrice": 10
+    }
+    ]
+}
+
+###
+
+PUT https://mongorest-api.herokapp.com/invoice/2
+Content-Type: application/json
+
+{
+"lookupID":111,
+"customerID":105,
+"date":"2019-01-18",
+"totalCost":404,
+"totalSale":0,
+"items":[]
+}
+
+###
+
+
+PUT https://Peter:lamepassword2@localhost:2020/invoice/1
+Content-Type: application/json
+
+{
+"id":"1",
+"lookupID":112,
+"customerID":105,
+"date":"2019-01-18",
+"totalCost":404,
+"totalSale":0,
+"items":[]
+}
+
+###
+
+DELETE https://admin:lamepassword@localhost:2020/invoice/1
+
+###
+
+DELETE https://Peter:lamepassword2@localhost:2020/invoice/1
+
+###
+
+//INVOICE QUERIES WITH DIFFERENT USER LEVELS
+//--------------------------------------------------------
+
+GET https://admin:lamepassword@localhost:2020/invoice/searchByCustomerID?customerID=105
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/invoice/searchByCustomerID?customerID=105
+
+###
+
+GET https://admin:lamepassword2@localhost:2020/invoice/totalSaleLessThan?totalSale=400
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/invoice/totalSaleLessThan?totalSale=400
+
+###
+
+GET https://admin:lamepassword@localhost:2020/invoice/totalSaleGreaterThan?totalSale=400
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/invoice/totalSaleGreaterThan?totalSale=400
+
+###
+
+//USER CRUD WITH DIFFERENT USER LEVELS
+//--------------------------------------------------------
+
+GET https://admin:lamepassword@localhost:2020/user/
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/user/
+
+###
+
+GET https://admin:lamepassword@localhost:2020/user/1
+
+###
+
+GET https://Peter:lamepassword2@localhost:2020/user/1
+
+###
+
+POST https://admin:lamepassword@localhost:2020/user/
+Content-Type: application/json
+
+{
+  "id":"201",
+  "username":"testadmin",
+  "password":"test",
+  "role":"USER"
+}
+
+###
+
+POST https://Peter:lamepassword2@localhost:2020/user/
+Content-Type: application/json
+
+{
+  "id":"202",
+  "username":"testuser",
+  "password":"test",
+  "role":"USER"
+}
+
+###
+
+PUT https://admin:lamepassword@localhost:2020/user/
+Content-Type: application/json
+
+{
+  "id":"2",
+  "username":"testadmin",
+  "password":"test",
+  "role":"USER"
+}
+
+###
+
+PUT https://Peter:lamepassword2@localhost:2020/user/
+Content-Type: application/json
+
+{
+  "id":"2",
+  "username":"testuser",
+  "password":"test",
+  "role":"USER"
+}
+
+###
+
